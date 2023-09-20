@@ -21,9 +21,8 @@ class WorldCitiesServletTest {
         WorldCitiesServlet servlet = new WorldCitiesServlet(cities, gson);
 
         HttpServletRequest request = mock();
-        doReturn("35.6897").when(request).getParameter("lat");
-        doReturn("139.6922").when(request).getParameter("lng");
-        //doReturn(new String[]{"Tokyo", "35.6897", "139.6922"}).when(request).getParameter("35.68, 139.69");
+        doReturn("35.68").when(request).getParameter("lat");
+        doReturn("139.69").when(request).getParameter("lng");
 
         HttpServletResponse response = mock();
         PrintWriter out = mock();

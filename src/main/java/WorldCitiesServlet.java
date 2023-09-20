@@ -30,8 +30,8 @@ public class WorldCitiesServlet extends HttpServlet {
 
         String[] nearestCity = cities.getNearestCity(lat,  lng);
 
-        WorldCitiesResponse dictionaryResponse = new WorldCitiesResponse(nearestCity[0], Double.parseDouble(nearestCity[1]), Double.parseDouble(nearestCity[2]));
+        WorldCitiesResponse worldCitiesResponse = new WorldCitiesResponse(nearestCity[0], Double.parseDouble(nearestCity[1]), Double.parseDouble(nearestCity[2]));
         resp.setContentType("text/json");
-        resp.getWriter().println(gson.toJson(dictionaryResponse));
+        resp.getWriter().println(gson.toJson(worldCitiesResponse));
     }
 }
