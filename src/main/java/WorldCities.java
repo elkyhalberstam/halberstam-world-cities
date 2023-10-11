@@ -2,10 +2,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,8 +14,10 @@ public class WorldCities {
     private ArrayList<String[]> cityList = new ArrayList<>();
 
     public WorldCities() throws IOException {
-        File csvData = new File("src/main/resources/worldcities.csv");
-        CSVParser parser = CSVParser.parse(csvData, Charset.defaultCharset(), CSVFormat.RFC4180);
+        InputStream inputStream = getClass().getClassLoader()
+                .getResourceAsStream("worldcities.csv");
+        //File csvData = new File("src/main/resources/worldcities.csv");
+        CSVParser parser = CSVParser.parse(inputStream, Charset.defaultCharset(), CSVFormat.RFC4180);
             List<CSVRecord> cities= parser.getRecords();
             for (CSVRecord city : cities) {
                 String name = city.get(1);
